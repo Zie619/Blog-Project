@@ -1,0 +1,121 @@
+<%- include("partials/header.ejs") %>
+
+<!-- Include custom styles -->
+<style>
+  :root {
+    --color1: #a2c2e2; /* Light blue */
+    --color2: #b3a4cf; /* Light purple */
+    --color3: #7f5fc6; /* Medium blue */
+    --color4: #5d3a9b; /* Dark blue */
+    --color5: #3f1a6c; /* Very dark purple */
+  }
+
+  .blog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Make sure items fill the container */
+    gap: 15px; /* Space between blog posts */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    height: 50vh; /* Default height for desktop */
+    overflow: hidden; /* Prevent overflow */
+  }
+
+  .blog-post {
+    background-color: var(--color1); /* Default color */
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1; /* Ensure it is above other elements */
+  }
+
+  .blog-post a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2; /* Ensure link is clickable */
+  }
+
+  .blog-post:hover {
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .blog-container {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust for mobile */
+      height: 120vh; /* Full viewport height for mobile */
+    }
+  }
+
+  .slide-in {
+    animation: slideIn 1s ease-out forwards;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<div class="mb-5">
+  <% if (locals.shuffle) { %>
+    <h1>Blog posts</h1>
+    <h3>The home page only shows random 7 posts. wanna see more? refresh the page or search by name</h3>
+    <hr>
+    <div class="blog-container">
+      <% for (let i = 0; i < locals.shuffle.length; i++) { %>
+        <div class="blog-post slide-in" data-index="<%= i %>">
+          <a href="/blog/<%= shuffle[i] %>"><%= shuffle[i] %></a>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
+</div>
+
+<!-- Include custom script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const colors = ['var(--color1)', 'var(--color2)', 'var(--color3)', 'var(--color4)', 'var(--color5)'];
+    const posts = document.querySelectorAll('.blog-post');
+
+    function adjustPostSizes() {
+      posts.forEach(post => {
+        const randomWidth = Math.random() * 150 + 150; // Random width between 150px and 300px
+        const randomHeight = Math.random() * 100 + 150;  // Random height between 150px and 250px
+        post.style.width = `${randomWidth}px`;
+        post.style.height = `${randomHeight}px`;
+        // Assign random color
+        post.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      });
+    }
+
+    // Initial adjustments
+    adjustPostSizes();
+
+    // Adjust sizes on window resize
+    window.addEventListener('resize', adjustPostSizes);
+  });
+</script>
+
+<%- include("partials/footer.ejs") %>

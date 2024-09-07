@@ -1,0 +1,57 @@
+<%- include("partials/header.ejs") %>
+<% if (locals.files_name) { %>
+<!-- Include custom styles -->
+<style>
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 800px;
+      margin: 0 auto;
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #f8f9fa; /* Light background */
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  
+    .about-text {
+      font-family: 'Rubik', sans-serif;
+      color: #333;
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: justify;
+      margin-bottom: 20px;
+    }
+  
+    .about-text p {
+      margin: 10px 0;
+    }
+  
+    .about-text strong {
+      color: #5d3a9b; /* Dark purple for emphasis */
+    }
+  
+    .about-container h2 {
+      font-size: 26px;
+      color: #3f1a6c;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+  
+  <div class="about-container">
+    <h1>About Me</h1>
+    <div class="about-text">
+      <p>Hi, I'm <strong>Eliad Shahar</strong>, the creative mind behind <strong>Dawn Designs</strong>. With a background in <strong>mechanical engineering</strong> and hands-on experience in control algorithms, I’ve discovered my passion for <strong>web development</strong>—specifically backend and full-stack development.</p>
+  
+      <p>My journey has equipped me with a unique blend of <strong>problem-solving skills</strong> and technical expertise, allowing me to build efficient, scalable, and reliable solutions. I'm always eager to learn new technologies and stay up to date with industry trends.</p>
+  
+      <p>Whether it's creating a seamless user experience or optimizing the architecture of complex systems, I'm driven by the challenge of turning ideas into reality. If you're looking for someone who is <strong>dedicated</strong>, <strong>adaptable</strong>, and ready to take on new challenges, let’s work together to bring your next project to life!</p>
+    </div>
+  </div>
+  
+<% } %>
+<%- include("partials/footer.ejs") %>

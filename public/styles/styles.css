@@ -1,0 +1,162 @@
+body{
+background-color: rgb(218, 255, 253);
+text-align: center; 
+}
+
+h1{
+    text-align: center;
+    font-size: 4rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: inline-block; 
+}
+
+.header{
+    background-color: rgb(232, 249, 255); 
+}
+
+li{
+    display: block;
+    padding-bottom: 1%;
+}
+
+/* Make the text bigger and bold for all navigation items */
+/* Make the text bigger and bold for all navigation items */
+.nav-item-style {
+    font-size: 1.5rem; /* Increase text size */
+    font-weight: bold; /* Make text bold */
+    color: rgb(208, 255, 251);
+}
+
+/* Style for the active page link */
+.nav-link.active {
+    color: #006b9c; /* Change color to the desired active link color */
+}
+
+/* Optional: Hover effect for all links */
+.nav-link:hover {
+    color: #1c0375; /* Change color on hover */
+}
+
+.text-body-secondary {
+    color: white !important; /* Force the text color to white */
+}
+
+
+/* Styling for the form container */
+.form-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the post title input */
+.form-container .post-title {
+    width: 100%;
+    font-size: 2.5em; /* This makes the title text size like h1 */
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
+}
+
+/* Styling for the textarea */
+.form-container textarea {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+/* Styling for the submit button */
+.form-container button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #0056b3;
+}
+
+.margin-for-footer {
+    margin-top: 230px;
+}
+
+hr {
+    border: 13px dotted #005d92;
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 40px;
+    border-style: none none dotted; 
+    color: #fff; 
+    background-color: #fff;
+}   
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+  }
+
+  input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  input[type=text] {
+    background-color: #f1f1f1;
+    width: 100%;
+  }
+  
+  input[type=submit] {
+    background-color: DodgerBlue;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+  }
+  
+  /*when hovering an item:*/
+  .autocomplete-items div:hover {
+    background-color: #e9e9e9; 
+  }
+  
+  /*when navigating through the items using the arrow keys:*/
+  .autocomplete-active {
+    background-color: DodgerBlue !important; 
+    color: #ffffff; 
+  }

@@ -1,0 +1,37 @@
+<div class="container mt-5">
+    <div class="d-flex justify-content-between">
+        <!-- Delete Button (Right Side) -->
+        <button id="deleteButton" class="btn btn-danger" data-filename="<%= activePage %>">Delete File</button>
+
+        <!-- Edit Button (Left Side) -->
+        <button id="editButton" class="btn btn-primary" data-filename="<%= activePage %>">Edit File</button>
+    </div>
+</div>
+
+
+<script>
+document.getElementById('deleteButton').addEventListener('click', () => {
+    const filename = document.getElementById('deleteButton').getAttribute('data-filename');
+
+    fetch(`/delete/${filename}`, {
+        method: 'DELETE',
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        window.location.href = '/';
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to delete file');
+    });
+});
+</script>
+
+<script>
+    document.getElementById('editButton').addEventListener('click', function() {
+        const filename = document.getElementById('editButton').getAttribute('data-filename');
+        window.location.href = `/edit/${filename}`;
+    });
+    </script>
+    

@@ -1,0 +1,39 @@
+<%- include("partials/header.ejs") %>
+
+<body style="
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: black; /* Set the background color to black */
+    overflow: hidden; /* Prevent scrolling */
+    position: relative; /* Ensure that child elements are positioned relative to the body */
+">
+
+    <img src="/images/404.jpeg" alt="404" style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Scale the image to fit the viewport while maintaining its aspect ratio */
+        z-index: -1;
+    ">
+
+    <h1 style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: white; /* White color for contrast against the black background */
+        text-align: center;
+        font-size: calc(1rem + 2vw); /* Responsive font size */
+        line-height: 1.5;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        margin: 0;
+        padding: 0;
+        white-space: nowrap; /* Prevent text wrapping */
+    ">
+    </h1>
+
+    <%- include("partials/footer.ejs") %>
+</body>

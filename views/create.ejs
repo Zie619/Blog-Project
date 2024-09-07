@@ -1,0 +1,43 @@
+<%- include("partials/header.ejs") %>
+
+<% if (locals.files_name) { %>
+  <form id="createForm">
+      <div class="form-container">
+          <input type="text" name="fileName" class="post-title" placeholder="Your Post Title" required />
+          <textarea name="content" placeholder="Write your content here..." required></textarea>
+          <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
+      </div>
+  </form>
+  <% } %>
+  
+  <script>
+  document.getElementById('createForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+  
+      const formData = new FormData(this);
+  
+      fetch('/create-file', {
+          method: 'POST',
+          body: new URLSearchParams(formData).toString(),
+          headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+          },
+      })
+      .then(response => {
+          if (response.ok) {
+              return response.json(); // Parse JSON for successful responses
+          } else {
+              return response.text().then(text => { throw new Error(text); });
+          }
+      })
+      .then(data => {
+          alert(data.message || 'File created successfully');
+          console.log(data.fileName)
+          window.location.href = `/blog/${data.fileName}`;
+      })
+      .catch(error => {
+          alert('Error: ' + error.message); // Alert error message from the server
+      });
+  });
+  </script>
+<%- include("partials/footer.ejs") %>
