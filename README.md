@@ -24,13 +24,13 @@ This is a full stack blog management application built with Node.js, Express, an
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/your-repository-name.git
+   git clone https://github.com/Zie619/Blog-Project.git
    ```
 
 2. **Navigate to the Project Directory**
 
    ```bash
-   cd your-repository-name
+   cd Blog-Project.git
    ```
 
 3. **Install Dependencies**
